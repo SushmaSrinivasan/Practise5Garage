@@ -8,16 +8,11 @@ namespace Practise5Garage
 {
     public class AvailableParkingSpace : Vehicle
     {
-        private static new int counter;
+        
         private static readonly int numberOfWheels;
-
-        public double Length { get; set; }
 
         public AvailableParkingSpace(string model, string registrationNumber, string color, int numberofWheels) : base(model, registrationNumber, color, numberOfWheels)
         {
-            counter++;
-            base.counter = counter;
-            
         }
 
         public override string ToString()

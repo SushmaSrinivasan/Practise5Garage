@@ -8,7 +8,7 @@ namespace Practise5Garage
         public string? RegistrationNumber { get; set; } = string.Empty;
         public string? Color { get; set; } = string.Empty;
         public int NumberOfWheels { get; set; }
-        public int counter { get; set; }
+       
 
         public Vehicle()
         { }

@@ -133,7 +133,7 @@ namespace Practise5Garage
         {
             var validRegistrationNumber = garage
             .Where(vehicle => vehicle != null &&
-                              vehicle.RegistrationNumber.ToLower().Replace(" ", "") == registrationNumber.ToLower().Replace(" ", ""));
+                              vehicle.RegistrationNumber!.ToLower().Replace(" ", "") == registrationNumber.ToLower().Replace(" ", ""));
 
             if (validRegistrationNumber.Any())
             {
@@ -177,9 +177,9 @@ namespace Practise5Garage
                 if (properties.Any(property =>
                     string.IsNullOrEmpty(property) && vehicle.NumberOfWheels == 0 ||
                     vehicle.GetType().Name.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    vehicle.Model.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    vehicle.RegistrationNumber.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    vehicle.Color.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    vehicle.Model!.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    vehicle.RegistrationNumber!.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    vehicle.Color!.Equals(property.Trim(), StringComparison.OrdinalIgnoreCase) ||
                     int.TryParse(property, out int parsedValue) &&
                     (vehicle.NumberOfWheels == parsedValue)))
                 {

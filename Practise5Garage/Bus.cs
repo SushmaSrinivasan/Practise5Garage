@@ -8,15 +8,14 @@ namespace Practise5Garage
 {
     public class Bus : Vehicle
     {
-        private static new int counter;
+       
         private static readonly int numberOfWheels;
 
         public int NumberOfSeats { get; set; }
 
         public Bus(string model, string registrationNumber, string color, int numberofWheels, int numberOfSeats) : base(model, registrationNumber, color, numberOfWheels)
         {
-            counter++;
-            base.counter = counter;
+            
             NumberOfSeats = numberOfSeats;
         }
 

@@ -8,16 +8,14 @@ namespace Practise5Garage
 {
     public class Boat : Vehicle
     {
-        private static new int counter;
+       
         private static readonly int numberOfWheels;
 
         public double Length { get; set; }
 
         public Boat(string model, string registrationNumber, string color, int numberofWheels, double length) : base(model, registrationNumber, color, numberOfWheels)
         {
-            counter++;
-            base.counter = counter;
-            Length = length;
+             Length = length;
         }
 
         public override string ToString()

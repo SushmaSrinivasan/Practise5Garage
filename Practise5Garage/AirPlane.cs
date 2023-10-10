@@ -8,15 +8,14 @@ namespace Practise5Garage
 {
     public class AirPlane : Vehicle
     {
-        private static new int counter;
+        
         private static readonly int numberOfWheels;
 
         public double AircraftWeight { get; set; }
 
         public AirPlane(string model, string registrationNumber, string color, int numberofWheels, double aircraftWeight) : base(model, registrationNumber, color, numberOfWheels)
         {
-            counter++;
-            base.counter = counter;
+            
             AircraftWeight = aircraftWeight;
         }
 

@@ -12,6 +12,6 @@ namespace Practise5Garage
         public string? RegistrationNumber { get; set; }
         public string? Color { get; set; }
         public int NumberOfWheels { get; set; }
-        public int counter { get; set; }
+        
     }
 }

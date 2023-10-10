@@ -8,16 +8,14 @@ namespace Practise5Garage
 {
     public class Motorcycle : Vehicle
     {
-        private static new int counter;
+      
         private static readonly int numberOfWheels;
 
         public string Power { get; set; }
 
         public Motorcycle(string model, string registrationNumber, string color, int numberofWheels, string power) : base(model, registrationNumber, color, numberOfWheels)
         {
-            counter++;
-            base.counter = counter;
-            Power= power;
+           Power= power;
         }
 
         public override string ToString()
