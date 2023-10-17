@@ -20,7 +20,7 @@ namespace Practise5Garage
                 {
                     ui.ConsoleWrite("Model name must be atleast 3 characters");
                 }
-            } while (IsValidModelName(modelName));
+            } while (!IsValidModelName(modelName));
             return modelName;
         }
         public static string CheckRegistrationNumber(IUI ui) 

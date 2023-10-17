@@ -44,29 +44,33 @@ namespace Practise5Garage
             }
         }
 
-        public IEnumerable<string> DisplayVehicleByType()
+        public List<string> DisplayVehicleByType()
         {
-            var vehicleType = garage
+            return garage
             .GroupBy(vehicle => vehicle.GetType().Name)
-            .Select(group => new
-            {
-                TypeName = group.Key,
-                Count = group.Count()
-            })
+            .Select(group => $"{group.Key}: {group.Count()}")
             .ToList();
-            foreach (var count in vehicleType)
-            {
-                yield return $"{count.TypeName}: {count.Count}";
-            }
+            //new
+            //{
+            //    TypeName = group.Key,
+            //    Count = group.Count()
+            //})
+            //.ToList();
+            //foreach (var count in vehicleType)
+            //{
+            //    yield return $"{count.TypeName}: {count.Count}";
+            //}
         }
 
         public IEnumerable<string> DisplayVehicleDetails()
         {
-            return from item in garage where item.Model != "Available" select $"{item}";
+            return from item in garage where item.Model != "Available" select $"{item.ToString()}";
         }
 
         public void AddVehicle()
         {
+            
+
             ui.ConsoleWriteLine("Enter the type of vehicle to be added:" +
                 "\n 1. AirPlane" +
                 "\n 2. Boat" +
@@ -76,9 +80,9 @@ namespace Practise5Garage
             ui.ConsoleWrite("Enter any number:");
             string number = ui.ConsoleRead();
 
-            AddVehicleProperties();
+            AddVehicleProperties(number);
         }
-        public void AddVehicleProperties()
+        public void AddVehicleProperties(string vehicleNumber)
         {
             ui.ConsoleWriteLine("Enter the vehicle model:");
             var model = Validation.CheckModelName(ui);
@@ -88,6 +92,17 @@ namespace Practise5Garage
             var color = Validation.CheckColor(ui);
             ui.ConsoleWriteLine("Enter the number of wheels the vehicle has:");
             var numberOfWheels = Validation.CheckNumberOfWheels(ui);
+
+            if(vehicleNumber == "1")
+            {
+                //Ask for Airplane properties
+                //Create an Airplane
+                var airplane = new AirPlane(model, registrationNumber, color, numberOfWheels, 100);
+                //Park airplane
+                garage.ParkVehicle(airplane);
+                //Display if it ok
+
+            }
         }
 
         public void RemoveVehicle()
@@ -189,6 +204,11 @@ namespace Practise5Garage
             }
             return match;
 
+        }
+
+        internal bool IsFull()
+        {
+            return garage.IsFull;
         }
     }
 }

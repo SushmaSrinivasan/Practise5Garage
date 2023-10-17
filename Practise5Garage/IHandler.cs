@@ -10,7 +10,7 @@ namespace Practise5Garage
     {
         void AddAvailableParkingSpace(Vehicle v);
         IEnumerable<string> DisplayVehicleDetails();
-        IEnumerable<string> DisplayVehicleByType();
+        List<string> DisplayVehicleByType();
 
         void AddVehicle();
 

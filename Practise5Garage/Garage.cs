@@ -11,10 +11,15 @@ namespace Practise5Garage
     public class Garage<T> : IEnumerable<T> where T : Vehicle
     {
         public T[] vehicleArray;
+        private readonly int capacity;
+        private int count;
+        public bool IsFull => capacity == count;
 
         public Garage(int garageSize)
         {
+            capacity = garageSize;
             vehicleArray = new T[garageSize];
+            
         }
 
         public void ParkVehicle(T Vehicle)
@@ -25,18 +30,22 @@ namespace Practise5Garage
                 if (vehicleArray[i] == null)
                 {
                     vehicleArray[i] = Vehicle;
+                    if(Vehicle is not AvailableParkingSpace)
+                         count++;
                     return;
                 }
             }
-            throw new ArgumentException("Garage is full and no space to park vehicle anymore");
+           // throw new ArgumentException("Garage is full and no space to park vehicle anymore");
         }
         public void ParkVehicle(T vehicle, int index)
         {
                         vehicleArray[index]=vehicle;
+            count++;
         }
         public void RemoveVehicle(T vehicle, int index)
         {
             vehicleArray[index] = vehicle;
+            count--;
         }
 
         public IEnumerator<T> GetEnumerator()
